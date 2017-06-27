@@ -1,9 +1,10 @@
-package main
+package plsh
 
 import (
 	"flag"
-	"github.com/chrislusf/glow/flow"
 	"fmt"
+
+	"github.com/chrislusf/glow/flow"
 )
 
 type Pair struct {
@@ -31,7 +32,7 @@ func main() {
 		fmt.Println("[DEBUG] mapper 1:", line)
 		m := NewMinHashValue(lsh.nMinHashFunc, lsh.minHashParams)
 		for j := 0; j < len(line)-nGram; j++ {
-			m.Update(line[j:j+nGram])
+			m.Update(line[j : j+nGram])
 		}
 		bucketIds := lsh.GetBucketIds(m)
 

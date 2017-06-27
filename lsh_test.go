@@ -1,4 +1,4 @@
-package main
+package plsh
 
 import (
 	"testing"
@@ -56,8 +56,8 @@ func TestLSH_FindBucket_Similarity(t *testing.T) {
 	m := make([]*MinHashValue, len(sentences))
 	for i := 0; i < len(sentences); i++ {
 		m[i] = NewMinHashValue(lsh.nMinHashFunc, lsh.minHashParams)
-		for j := 0; j < len(sentences[i]) - nGram; j++ {
-			m[i].Update(sentences[i][j: j + nGram])
+		for j := 0; j < len(sentences[i])-nGram; j++ {
+			m[i].Update(sentences[i][j : j+nGram])
 		}
 		t.Log(sentences[i], lsh.GetBucketIds(m[i]))
 	}

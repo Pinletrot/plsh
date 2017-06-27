@@ -1,4 +1,4 @@
-package main
+package plsh
 
 type MinHashValue struct {
 	N      uint32
